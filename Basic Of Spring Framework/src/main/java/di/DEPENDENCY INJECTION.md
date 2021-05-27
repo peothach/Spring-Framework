@@ -1,4 +1,4 @@
-## DI
+## DI (Dependency Injection)
 > **Dependency Injection** là việc các Object nên phụ thuộc vào các Abstract Class và thể hiện chi tiết của nó sẽ được Inject vào đối tượng lúc runtime.
 
 Các cách để Inject dependency vào một đối tượng có thể kể đến như sau:
