@@ -10,4 +10,4 @@ Các cách để Inject dependency vào một đối tượng có thể kể đ�
 •	Interface Injection: Mỗi Class muốn inject cái gì, thì phải implement một Interface có chứa một hàm inject(xx) (Gần như thay thế cho setter ý bạn). Rồi bạn muốn inject gì đó thì gọi cái hàm inject(xx) ra. Cách này hơi dài và khó cho người mới.
 
 ## Image
-[Link](https://github.com/peothach/Spring-Framework/blob/master/image/Dependency.jpg)
+![](https://github.com/peothach/Spring-Framework/blob/master/image/Dependency.jpg)
