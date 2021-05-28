@@ -1,4 +1,4 @@
-### Spring Bean Life Cycle
+## Spring Bean Life Cycle
 
 ![](https://github.com/peothach/Spring-Framework/blob/master/image/spring-bean-life-cycle-management-example.png)
 
