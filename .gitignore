@@ -8,6 +8,9 @@
 *.orig
 
 ### Eclipse ###
+*.classpath
+*.project
+SpringJDBC.iml
 .metadata
 bin/
 tmp/
