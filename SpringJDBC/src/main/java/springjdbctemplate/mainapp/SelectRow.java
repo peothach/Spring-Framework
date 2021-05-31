@@ -1,4 +1,4 @@
-package stackjava.com.springjdbc.mainapp;
+package springjdbctemplate.mainapp;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import stackjava.com.springjdbc.entities.User;
-import stackjava.com.springjdbc.entities.UserMapper;
+import springjdbctemplate.entities.User;
+import springjdbctemplate.entities.UserMapper;
 
 public class SelectRow {
 	public static void main(String[] args) throws SQLException {

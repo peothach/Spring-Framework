@@ -1,4 +1,4 @@
-package stackjava.com.springjdbc.entities;
+package springjdbctemplate.entities;
 
 public class User {
 	private int id;

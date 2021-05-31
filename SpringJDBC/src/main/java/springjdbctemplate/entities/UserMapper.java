@@ -1,4 +1,4 @@
-package stackjava.com.springjdbc.entities;
+package springjdbctemplate.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
