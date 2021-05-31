@@ -23,6 +23,11 @@ local.properties
 .loadpath
 .recommenders
 
+### Another ###
+*.HELP.md
+*.mvnw
+*.mvnw.cmd
+
 # External tool builders
 .externalToolBuilders/
 
@@ -192,6 +197,7 @@ fabric.properties
 .idea/codestream.xml
 
 ### Maven ###
+*.mvn
 target/
 pom.xml.tag
 pom.xml.releaseBackup
