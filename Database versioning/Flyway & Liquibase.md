@@ -1,0 +1,5 @@
+## Flyway and Liquibase
+
+Both Flyway and Liquibase support all features that you need for professional database refactoring and versioning, so you will always know which version of the database schema you are dealing with and if it matches to the version of your software. Both tools are integrated in Maven or Gradle build scripts and in the Spring Boot ecosystem so that you can fully automate database refactoring.
+
+Flyway uses SQL to define database changes, and thus you can tailor your SQL scripts to work well with the underlying database technology like Oracle or PostgreSQL. With Liquibase on the other hand, you can introduce an abstraction layer by using XML, YAML or JSON to define your database changes. Thus, Liquibase is better suited to be used in a software product that is installed in different environments with different underlying database technologies. If you want to have full control over your SQL, however, Flyway is the tool of choice since you can change the database with fully tailored SQL or even Java code.
