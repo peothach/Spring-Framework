@@ -24,10 +24,10 @@ local.properties
 .recommenders
 
 ### Another ###
-*.HELP.md
-*.mvnw
-*.SpringDataJPA.iml
-*.mvnw.cmd
+HELP.md
+mvnw
+SpringDataJPA.iml
+mvnw.cmd
 
 # External tool builders
 .externalToolBuilders/
