@@ -1,9 +1,9 @@
 package com.studentmanager.entity;
 
 import lombok.*;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity(name = "student")
 @AllArgsConstructor
@@ -24,4 +24,7 @@ public class Student {
 
     @Column(name = "student_address")
     private String address;
+
+    @Column(name = "student_birthday")
+    private LocalDate birthday;
 }

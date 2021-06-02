@@ -1,0 +1,12 @@
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('John', 'US', '1991-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('James', 'US', '1992-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('David', 'US', '1993-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Christopher', 'US', '1994-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('George', 'US', '1995-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Ronald', 'US', '1996-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('John', 'UK', '1997-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('George', 'UK', '1998-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Harry', 'UK', '1999-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Jack', 'UK', '2000-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Jacob', 'UK', '2001-01-01');
+INSERT INTO student(student_name, student_address, student_birthday) VALUES('Noah', 'UK', '2002-01-01');
