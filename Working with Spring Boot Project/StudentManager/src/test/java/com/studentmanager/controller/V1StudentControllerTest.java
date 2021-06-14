@@ -23,6 +23,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -201,7 +202,7 @@ public class V1StudentControllerTest {
     //End Point(/student/search), Method = showStudentByKeyWord, Positive case
     @Test
     public void given_devEnvironmentWithParamKeyword_when_callEndPointShowStudentByKeyWord_then_returnStatus200AndStudentList() throws Exception {
-        when(studentRepo.search(any(String.class))).thenReturn(Collections.singletonList(STUDENT));
+        when(studentRepo.findAll(any(Specification.class))).thenReturn(Collections.singletonList(STUDENT));
 
         RequestBuilder request = MockMvcRequestBuilders
                 .get("/students/search")
@@ -218,7 +219,7 @@ public class V1StudentControllerTest {
     //End Point(/student/filter), Method = filterStudent, Positive case
     @Test
     public void given_devEnvironmentWithParamOfStudent_when_callEndPointFilterStudent_then_returnStatus200AndStudentList() throws Exception {
-        when(studentRepo.filter(ArgumentMatchers.any(Student.class)))
+        when(studentRepo.findAll(ArgumentMatchers.any(Specification.class)))
                 .thenReturn(Collections.singletonList(STUDENT));
 
         RequestBuilder request = MockMvcRequestBuilders
