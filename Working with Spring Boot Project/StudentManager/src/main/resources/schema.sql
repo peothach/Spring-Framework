@@ -9,4 +9,19 @@ drop table if exists student CASCADE;
         student_name varchar(255),
         student_phone varchar(255),
         primary key (student_id)
-    )
+    );
+
+    alter table student
+           add column created_by varchar(255);
+
+    alter table student
+           add column created_date date;
+
+    alter table student
+           add column last_modified_by varchar(255);
+
+    alter table student
+           add column last_modified_date date;
+
+
+

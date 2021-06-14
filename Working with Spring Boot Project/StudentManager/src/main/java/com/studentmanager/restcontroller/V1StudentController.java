@@ -126,7 +126,7 @@ public class V1StudentController {
      */
     @ApiOperation(value = "Return list student by keyword")
     @GetMapping("students/search")
-    public ResponseEntity<?> showStudentByKeyWord(@RequestParam(required = false) Optional<String> keyword) {
+    public ResponseEntity<?> showStudentByKeyWord(@RequestParam(required = false) String keyword) {
         return new ResponseEntity<>(studentService.search(keyword), HttpStatus.OK);
     }
 

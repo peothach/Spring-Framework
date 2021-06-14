@@ -18,7 +18,7 @@ import java.util.Optional;
 @Transactional
 public class StudentServiceProd implements IStudentService {
 
-    @Autowired()
+    @Autowired
     IStudentRepo studentRepo;
 
     @Override
@@ -36,7 +36,7 @@ public class StudentServiceProd implements IStudentService {
         // Lấy ra 5 user đầu tiên
         // PageRequest.of(0,5) tương đương với lấy ra page đầu tiên, và mỗi page sẽ có 5 phần tử
         // PageRequest là một đối tượng kế thừa Pageable
-        page --;
+        page--;
         PageRequest pageRequest = PageRequest.of(page, size);
         return studentRepo.findAll(pageRequest).getContent();
     }
@@ -52,14 +52,15 @@ public class StudentServiceProd implements IStudentService {
     }
 
     @Override
-    public List<Student> search(Optional<String> keyword) {
-        if(!keyword.isPresent()) return studentRepo.findAll();
-        return studentRepo.search(keyword.get());
+    public List<Student> search(String keyword) {
+        if (keyword == null) return studentRepo.findAll();
+        System.out.println("Service " + keyword);
+        return studentRepo.search(keyword);
     }
 
     @Override
     public List<Student> filter(Student student) {
-        if(student == null) return studentRepo.findAll();
+        if (student == null) return studentRepo.findAll();
 
         return studentRepo.filter(student);
     }

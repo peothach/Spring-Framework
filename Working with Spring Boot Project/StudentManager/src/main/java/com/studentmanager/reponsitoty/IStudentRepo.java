@@ -1,23 +1,19 @@
 package com.studentmanager.reponsitoty;
 
 import com.studentmanager.entity.Student;
-import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
-public interface IStudentRepo extends JpaRepository<Student, Long>, JpaSpecificationExecutor<Student>{
+public interface IStudentRepo extends JpaRepository<Student, Long>,
+        JpaSpecificationExecutor<Student> {
 
     // JpaSpecificationExecutor
 
@@ -41,7 +37,7 @@ public interface IStudentRepo extends JpaRepository<Student, Long>, JpaSpecifica
     /**
      * Returns a {@link Page} of entities matching the given {@link Specification}.
      *
-     * @param spec can be {@literal null}.
+     * @param spec     can be {@literal null}.
      * @param pageable must not be {@literal null}.
      * @return never {@literal null}.
      */
@@ -65,14 +61,14 @@ public interface IStudentRepo extends JpaRepository<Student, Long>, JpaSpecifica
     long count(@Nullable Specification<Student> spec);
 
 
-    // Spring Data Jpa
-    @Query("SELECT s FROM student s WHERE CONCAT(s.name, ' ', s.address) LIKE %:#{#keyword}%")
-    List<Student> search(String keyword);
-
-    @Query("SELECT s FROM student s"
-            + " WHERE s.name LIKE %:#{#student.name != null ? #student.name:''}%"
-            + " AND s.address LIKE %:#{#student.address != null ? #student.address:''}%")
-    List<Student> filter(@Param("student") Student student);
+    // Spring Data Jpa Using JPQL
+//    @Query("SELECT s FROM student s WHERE CONCAT(s.name, ' ', s.address) LIKE %:#{#keyword}%")
+//    List<Student> search(String keyword);
+//
+//    @Query("SELECT s FROM student s"
+//            + " WHERE s.name LIKE %:#{#student.name != null ? #student.name:''}%"
+//            + " AND s.address LIKE %:#{#student.address != null ? #student.address:''}%")
+//    List<Student> filter(@Param("student") Student student);
 
     Optional<Student> findByName(String name);
 }

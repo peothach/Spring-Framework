@@ -39,7 +39,7 @@ public interface IStudentService {
      * @param keyword
      * @return List<Student>
      */
-    List<Student> search(Optional<String> keyword);
+    List<Student> search(String keyword);
 
     /**
      * Filter Student
