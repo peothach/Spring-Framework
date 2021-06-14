@@ -59,6 +59,13 @@ public class V1StudentController {
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
+    /**
+     * API get all student (/students)
+     * HTTP GET
+     * Method = showAll
+      * @return ResponseEntity<>(List<Student>, HttpStatus.OK)
+     */
+    @GetMapping("students")
     @ApiOperation(value = "Return list student")
     @ApiResponses(
             value = {
@@ -66,14 +73,21 @@ public class V1StudentController {
                     @ApiResponse(code = 200, message = "Successful!")
             }
     )
-    @GetMapping("students")
     public ResponseEntity<?> showAll() {
         List<Student> studentList = studentService.findAll();
         return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Return list student by paging")
+    /**
+     * API get list student by page(/students/paging)
+     * HTTP GET
+     * Method = showStudentByPage
+     * @RequestParam (required = false, defaultValue = "1") Integer page
+     * @RequestParam (required = false, defaultValue = "3") Integer size
+     * @return ResponseEntity<>(List<Student>, HttpStatus.OK)
+     */
     @GetMapping("students/paging")
+    @ApiOperation(value = "Return list student by paging")
     public ResponseEntity<?> showStudentByPage(@Valid @Min(1) @RequestParam(required = false, defaultValue = "1") Integer page,
                                                @Valid @Min(0) @RequestParam(required = false, defaultValue = "3") Integer size) {
 
@@ -85,6 +99,14 @@ public class V1StudentController {
         return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
 
+    /**
+     * API get all student and sort(/students/sort)
+     * HTTP GET
+     * Method = showStudentAndSort
+     * @RequestParam (required = false, defaultValue = "name") String field
+     * @RequestParam (required = false, defaultValue = "ASC") String sort
+     * @return ResponseEntity<>(List<Student>, HttpStatus.OK)
+     */
     @ApiOperation(value = "Return list student by sort")
     @GetMapping("students/sort")
     public ResponseEntity<?> showStudentAndSort(@RequestParam(required = false, defaultValue = "name") String field,
@@ -95,18 +117,39 @@ public class V1StudentController {
         return new ResponseEntity<>(studentService.findStudentAndSort(sortable), HttpStatus.OK);
     }
 
+    /**
+     * API get student by keyword(/students/search)
+     * HTTP GET
+     * Method = showStudentByKeyWord
+     * @RequestParam (required = false) Optional<String> keyword
+     * @return ResponseEntity<>(Student, HttpStatus.OK)
+     */
     @ApiOperation(value = "Return list student by keyword")
     @GetMapping("students/search")
     public ResponseEntity<?> showStudentByKeyWord(@RequestParam(required = false) Optional<String> keyword) {
         return new ResponseEntity<>(studentService.search(keyword), HttpStatus.OK);
     }
 
+    /**
+     * API get list student and filter(/students/filter)
+     * HTTP GET
+     * Method = filterStudent
+     * @ModelAttribute Student student
+     * @return ResponseEntity<>(List<Student>, HttpStatus.OK)
+     */
     @ApiOperation(value = "Return list student by filter")
     @GetMapping("students/filter")
     public ResponseEntity<?> filterStudent(@ModelAttribute Student student) {
         return new ResponseEntity<>(studentService.filter(student), HttpStatus.OK);
     }
 
+    /**
+     * API get student by ID(/students/{id})
+     * HTTP GET
+     * Method = findStudentByID
+     * @PathVariable Optional<Long> id
+     * @return ResponseEntity<>(Student, HttpStatus.OK)
+     */
     @ApiOperation(value = "Return student by id")
     @GetMapping("students/{id}")
     public ResponseEntity<?> findStudentByID(@PathVariable Optional<Long> id) {
@@ -114,10 +157,17 @@ public class V1StudentController {
             throw new StudentNotFoundException("Student with id " + id.get() + " not found!");
         }
 
-        Optional<Student> studentList = studentService.findStudentById(id.get());
-        return new ResponseEntity<>(studentList.get(), HttpStatus.OK);
+        Optional<Student> student = studentService.findStudentById(id.get());
+        return new ResponseEntity<>(student.get(), HttpStatus.OK);
     }
 
+    /**
+     * API create student(/students)
+     * HTTP POST
+     * Method = createStudent
+     * @RequestBody Student student
+     * @return ResponseEntity<>(Student, HttpStatus.OK)
+     */
     @ApiOperation(value = "Create student")
     @PostMapping("students")
     public ResponseEntity<?> createStudent(@RequestBody @Valid Student student) {
@@ -141,6 +191,14 @@ public class V1StudentController {
         return new ResponseEntity<>(st, HttpStatus.OK);
     }
 
+    /**
+     * API update student(/students)
+     * HTTP PUT
+     * Method = updateStudent
+     * @RequestBody Student student
+     * @PathVariable Optional<Long> id
+     * @return ResponseEntity<>(Student, HttpStatus.OK)
+     */
     @ApiOperation(value = "Update student by id")
     @PutMapping(value = "students/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateStudent(@RequestBody Student student, @PathVariable Optional<Long> id) {
@@ -171,6 +229,13 @@ public class V1StudentController {
         return new ResponseEntity<>(st, HttpStatus.OK);
     }
 
+    /**
+     * API update student(/students)
+     * HTTP DELETE
+     * Method = deleteStudent
+     * @PathVariable Optional<Long> id
+     * @return ResponseEntity<>(HttpStatus.OK)
+     */
     @ApiOperation(value = "Delete student by id")
     @DeleteMapping("students/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable Optional<Long> id) {
