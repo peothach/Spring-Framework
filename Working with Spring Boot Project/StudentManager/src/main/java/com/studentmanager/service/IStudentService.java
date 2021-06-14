@@ -11,6 +11,12 @@ import java.util.Optional;
 
 public interface IStudentService {
 
+    /**
+     * Test Evironment
+     * @return
+     */
+    String environment();
+
     List<Student> findAll();
 
     /**
@@ -18,7 +24,7 @@ public interface IStudentService {
      * @param pageable
      * @return List<Student>
      */
-    List<Student> findStudentByPage(PageRequest pageRequest);
+    List<Student> findStudentByPage(int page, int size);
 
     /**
      * Sort Student
@@ -27,6 +33,7 @@ public interface IStudentService {
      */
     List<Student> findStudentAndSort(Sort sort);
 
+    Optional<Student> findStudentByName(String name);
     /**
      * Search Student
      * @param keyword

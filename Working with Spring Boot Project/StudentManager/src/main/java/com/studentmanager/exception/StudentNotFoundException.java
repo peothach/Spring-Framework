@@ -3,9 +3,9 @@ package com.studentmanager.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-public class RecordNotFoundException extends RuntimeException{
+public class StudentNotFoundException extends RuntimeException{
 
-    public RecordNotFoundException(String message){
+    public StudentNotFoundException(String message){
         super(message);
     }
 }
